@@ -44,7 +44,10 @@ function setup() {
     app.downPo = {};
     app.mouse = {};
     app.stage.interactive = true;
-    app.stage.on('pointerdown', function (e) {
+    // app.stage.on('pointerdown', e => {
+    console.log(12345);
+    app.stage.on('touchstart ', function (e) {
+        console.log(e);
         if (app.down) {
             return;
         }
