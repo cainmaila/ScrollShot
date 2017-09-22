@@ -8,8 +8,14 @@ function borderChk(mc) {
         mc.x = 0
     }
     if (mc.y > app.stageH) {
-        mc.x = app.stageH
+        mc.y = app.stageH
     } else if (mc.y < 0) {
         mc.y = 0
+    }
+}
+
+function bbOut(bb) {
+    if (bb.y < 0) {
+        return true
     }
 }
