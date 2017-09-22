@@ -4,6 +4,7 @@ function Mc(texture, inStage) {
     this.anchor.set(0.5)
     this.v = { x: 0, y: 0 }
     inStage ? this.inStage(true) : ''
+    app.stage.addChild(this)
 }
 Mc.prototype = Object.create(PIXI.Sprite.prototype)
 Mc.prototype.next = function () {
@@ -12,12 +13,11 @@ Mc.prototype.next = function () {
 }
 Mc.prototype.inStage = function (_f) {
     if (_f) {
-        app.stage.addChild(this)
         app.ticker.add(this.next, this)
     } else {
         app.ticker.remove(this.next, this)
-        app.stage.remove(this)
     }
+    this.visible = _f
 }
 Mc.prototype.die = function () {
     app.ticker.remove(this.next, this)

@@ -9,7 +9,6 @@ function Me() {
 Me.prototype = Object.create(Mc.prototype)
 
 Me.prototype.next = function (t) {
-    console.log(this.v.x)
     Mc.prototype.next.call(this)
     borderChk(this)
     this.isFire ? this.fire(t) : ''
@@ -19,7 +18,7 @@ let bb_t = BB_T
 Me.prototype.fire = function (t) {
     bb_t -= t
     if (bb_t <= 0) {
-        new BB(this.position)
+        app.bb_pool.fire(this)
         bb_t = BB_T
     }
 }

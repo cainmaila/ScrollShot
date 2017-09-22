@@ -35,6 +35,8 @@ function setup() {
         sea.tilePosition.y += 3
     })
 
+    app.bb_pool = new BB_Pool(20)
+
     rocker(new Me())
 }
 
