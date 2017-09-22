@@ -1,6 +1,6 @@
 //主角子彈
 function BB(po) {
-    Mc.call(this, "images/bb.png")
+    Mc.call(this, "images/bb.png", true)
     this.position = po
     this.v.y = -10
     app.stage.addChild(this)

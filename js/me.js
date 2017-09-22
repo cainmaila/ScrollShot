@@ -1,15 +1,15 @@
 //操作主角
 function Me() {
-    Mc.call(this, "images/me.png")
+    Mc.call(this, "images/me.png", true)
     app.me = this
     this.x = app.stageW >> 1
     this.y = app.stageH >> 1
-    this.isFire = true
-    app.stage.addChild(this)
+    this.isFire = false
 }
 Me.prototype = Object.create(Mc.prototype)
 
 Me.prototype.next = function (t) {
+    console.log(this.v.x)
     Mc.prototype.next.call(this)
     borderChk(this)
     this.isFire ? this.fire(t) : ''

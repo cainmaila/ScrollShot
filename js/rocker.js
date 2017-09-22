@@ -1,12 +1,13 @@
 /**
  * 搖桿
  */
-function rocker() {
+function rocker(me) {
     app.stage.interactive = true
     app.down = false
     app.downPo = {}
     app.mouse = {}
     app.stage.on('pointerdown', e => {
+        me.isFire = true
         if (app.down) {
             return
         }
@@ -21,12 +22,12 @@ function rocker() {
         if (app.down) {
             let xd = app.mouse.x - app.downPo.x
             let yd = app.mouse.y - app.downPo.y
-            app.me.v = {
-                x: Math.atan(xd / 800) * 30,
-                y: Math.atan(yd / 800) * 30,
+            me.v = {
+                x: Math.atan(xd / 800) * 25,
+                y: Math.atan(yd / 800) * 25,
             }
         } else {
-            app.me.v = {
+            me.v = {
                 x: 0,
                 y: 0
             }
@@ -34,8 +35,9 @@ function rocker() {
     })
 
     app.stage.on('pointerup', () => {
+        me.isFire = false
         app.down = false
-        app.me.v = {
+        me.v = {
             x: 0,
             y: 0
         }

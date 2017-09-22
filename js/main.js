@@ -35,18 +35,7 @@ function setup() {
         sea.tilePosition.y += 3
     })
 
-    new Me()
-
-    // const BB_T = 4
-    // let bb_t = BB_T
-    // app.ticker.add(t => {
-    //     bb_t -= t
-    //     if (bb_t <= 0) {
-    //         app.me.fire()
-    //         bb_t = BB_T
-    //     }
-    // })
-    rocker()
+    rocker(new Me())
 }
 
 
