@@ -1,11 +1,13 @@
 const app = new PIXI.Application({
-    width: 1000,
-    height: 800,
+    width: 0,
+    height: 0,
     backgroundColor: 0x3e81bb,
 })
+app.stageW = 0
+app.stageH = 0
 const renderer = app.renderer
 const game = document.getElementById('game')
-let stageW, stageH, sea, me
+let sea, me
 renderer.autoResize = true;
 game.appendChild(app.view)
 onResize()
@@ -25,23 +27,15 @@ function setup() {
         app.renderer.width,
         app.renderer.height
     )
-    me = new Mc("images/me.png")
-    // me = new PIXI.Sprite(
-    //     PIXI.loader.resources["images/me.png"].texture
-    // )
-    // me.anchor.set(0.5)
-    me.mc.x = app.renderer.width >> 1
-    me.mc.y = app.renderer.height >> 1
-    // me.vx = 0
-    // me.vy = 0
+    me = new Me()
+    me.x = app.renderer.width >> 1
+    me.y = app.renderer.height >> 1
 
     app.stage.addChild(sea)
-    app.stage.addChild(me.mc)
+    app.stage.addChild(me)
 
     app.ticker.add(t => {
         sea.tilePosition.y += 3
-        // me.x += me.vx
-        // me.y += me.vy
     })
 
     // me.vx = 0
@@ -65,16 +59,15 @@ function setup() {
         if (app.down) {
             let xd = app.mouse.x - app.downPo.x
             let yd = app.mouse.y - app.downPo.y
-            me.setV({
+            me.v = {
                 x: Math.atan(xd / 100) * 10,
                 y: Math.atan(yd / 100) * 10
-            })
-            // me.vx = Math.atan(xd / 100) * 10
-            // me.vy = Math.atan(yd / 100) * 10
+            }
         } else {
-            // me.vx = 0
-            // me.vy = 0
-            me.stop()
+            me.v = {
+                x: 0,
+                y: 0
+            }
         }
     })
 
@@ -82,19 +75,22 @@ function setup() {
         app.down = false
         // me.vx = 0
         // me.vy = 0
-        me.stop()
+        me.v = {
+            x: 0,
+            y: 0
+        }
     })
 }
 
 
 
 function onResize() {
-    stageW = window.innerWidth
-    stageH = window.innerHeight
-    renderer.resize(stageW, stageH)
-    game.style.width = stageW + 'px'
-    game.style.height = stageH + 'px'
+    app.stageW = window.innerWidth
+    app.stageH = window.innerHeight
+    renderer.resize(app.stageW, app.stageH)
+    game.style.width = app.stageW + 'px'
+    game.style.height = app.stageH + 'px'
     if (!sea) return
-    sea.width = stageW
-    sea.height = stageH
+    sea.width = app.stageW
+    sea.height = app.stageH
 }
