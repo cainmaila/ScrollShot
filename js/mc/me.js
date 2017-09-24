@@ -5,6 +5,8 @@ function Me() {
     this.x = app.stageW >> 1
     this.y = app.stageH >> 1
     this.isFire = false
+    this.life = 10
+    this.d = 5
 }
 Me.prototype = Object.create(Mc.prototype)
 

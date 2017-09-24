@@ -9,6 +9,7 @@ BB_Pool.prototype.fire = function (me) {
     let bb = this.once() 
     if (bb) {
         bb.position = me.position
+        bb.life = 1
         bb.inStage(true)
     }
 }

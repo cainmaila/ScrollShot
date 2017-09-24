@@ -8,4 +8,5 @@ NPC_Pool.prototype = Object.create(Pool.prototype)
 NPC_Pool.prototype.mcInit = function (mc) {
     mc.x = ~~(Math.random()*app.stageW)
     mc.y = -10
+    mc.life = 1
 }

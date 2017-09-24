@@ -3,6 +3,8 @@ function Mc(texture, inStage) {
     PIXI.Sprite.call(this, PIXI.loader.resources[texture].texture)
     this.anchor.set(0.5)
     this.v = { x: 0, y: 0 }
+    this.life = 1
+    this.d = 0
     app.stage.addChild(this)
     inStage ? this.inStage(true) : ''
     this.visible = inStage?true:false
