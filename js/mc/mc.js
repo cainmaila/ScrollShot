@@ -3,8 +3,9 @@ function Mc(texture, inStage) {
     PIXI.Sprite.call(this, PIXI.loader.resources[texture].texture)
     this.anchor.set(0.5)
     this.v = { x: 0, y: 0 }
-    inStage ? this.inStage(true) : ''
     app.stage.addChild(this)
+    inStage ? this.inStage(true) : ''
+    this.visible = inStage?true:false
 }
 Mc.prototype = Object.create(PIXI.Sprite.prototype)
 Mc.prototype.next = function () {

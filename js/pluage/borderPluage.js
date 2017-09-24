@@ -19,3 +19,9 @@ function bbOut(bb) {
         return true
     }
 }
+
+function npcOut(npc){
+    if (npc.y > app.stageH) {
+        return true
+    }
+}

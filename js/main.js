@@ -17,6 +17,7 @@ PIXI.loader
     .add("images/me.png")
     .add("images/sea.jpg")
     .add("images/bb.png")
+    .add("images/npc.png")
     .load(setup)
 
 
@@ -38,6 +39,12 @@ function setup() {
     app.bb_pool = new BB_Pool(20)
 
     rocker(new Me())
+
+    app.npcPool = new NPC_Pool(5)
+
+    setInterval(function(){
+        app.npcPool.once()
+    },500)
 }
 
 
