@@ -23,8 +23,8 @@ function rocker(me) {
             let xd = app.mouse.x - app.downPo.x
             let yd = app.mouse.y - app.downPo.y
             me.v = {
-                x: Math.atan(xd / 800) * 25,
-                y: Math.atan(yd / 800) * 25,
+                x: Math.atan(xd / 100) * 10,
+                y: Math.atan(yd / 100) * 10,
             }
         } else {
             me.v = {
