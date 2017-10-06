@@ -9,10 +9,9 @@ function BB(po) {
 BB.prototype = Object.create(Mc.prototype)
 BB.prototype.next = function () {
     Mc.prototype.next.call(this)
-    if(this.life>0){
-        bbOut(this) ? this.life=0:''
-        if(this.life>0){
-            hitNpcTest(this)
-        }
+    if (this.life === 0) return
+    bbOut(this) ? this.life = 0 : ''
+    if (this.life > 0) {
+        hitNpcTest(this)
     }
 }

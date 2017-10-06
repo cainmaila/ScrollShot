@@ -36,11 +36,12 @@ function setup() {
 
     app.ticker.add(t => {
         sea.tilePosition.y += 3
+        meHit()
     })
 
     app.bb_pool = new BB_Pool(20)
-
-    rocker(new Me())
+    app.me = new Me()
+    rocker(app.me)
 
     app.npcPool = new NPC_Pool(10)
 

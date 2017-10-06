@@ -11,6 +11,15 @@ function hitNpcTest(bb) {
     })
 }
 
+function meHit() {
+    app.npcPool.free.forEach(function (npc) {
+        if (hitTest(app.me, npc)) {
+            app.me.life--
+            npc.life--
+        }
+    })
+}
+
 function hitTest(m1, m2) {
     if (m2.y - m2.d <= m1.y + m1.d) {
         let dx = m1.x - m2.x

@@ -7,7 +7,7 @@ function Mc(texture, inStage) {
     this.d = 0
     app.stage.addChild(this)
     inStage ? this.inStage(true) : ''
-    this.visible = inStage?true:false
+    this.visible = inStage ? true : false
 }
 Mc.prototype = Object.create(PIXI.Sprite.prototype)
 Mc.prototype.next = function () {
