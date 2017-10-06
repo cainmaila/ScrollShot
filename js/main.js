@@ -50,6 +50,16 @@ function setup() {
     setInterval(function () {
         app.npcPool.once()
     }, 500)
+
+    var graphics = new PIXI.Graphics()
+    graphics.beginFill(0xFF0000)
+    graphics.lineStyle(1, 0xffffff, 1)
+    graphics.drawCircle(0, 0, 4)
+    graphics.endFill()
+    graphics.x = 100
+    graphics.y = 100
+    graphics.cacheAsBitmap = true
+    app.stage.addChild(graphics)
 }
 
 
