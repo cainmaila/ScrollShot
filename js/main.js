@@ -1,7 +1,7 @@
 const app = new PIXI.Application({
     width: 0,
     height: 0,
-    backgroundColor: 0x3e81bb,
+    backgroundColor: 0x3e81bb
 })
 app.stageW = 0
 app.stageH = 0
@@ -9,26 +9,25 @@ app.me = null
 const renderer = app.renderer
 const game = document.getElementById('game')
 let sea
-renderer.autoResize = true;
+renderer.autoResize = true
 game.appendChild(app.view)
 onResize()
 
 PIXI.loader
-    .add("images/me.png")
-    .add("images/sea.jpg")
-    .add("images/bb.png")
-    .add("images/npc.png")
-    .add("images/bom.png")
-    .add("images/bom2.png")
+    .add('images/me.png')
+    .add('images/sea.jpg')
+    .add('images/bb.png')
+    .add('images/npc.png')
+    .add('images/bom.png')
+    .add('images/bom2.png')
     .load(setup)
-
 
 window.addEventListener('resize', onResize)
 window.addEventListener('orientationChange', onResize)
 
 function setup() {
     sea = new PIXI.extras.TilingSprite(
-        PIXI.loader.resources["images/sea.jpg"].texture,
+        PIXI.loader.resources['images/sea.jpg'].texture,
         app.stageW,
         app.stageH
     )
@@ -47,12 +46,12 @@ function setup() {
 
     app.bomPool = new Bom_Pool(20)
 
-    setInterval(function () {
+    setInterval(function() {
         app.npcPool.once()
     }, 500)
 
     var graphics = new PIXI.Graphics()
-    graphics.beginFill(0xFF0000)
+    graphics.beginFill(0xff0000)
     graphics.lineStyle(1, 0xffffff, 1)
     graphics.drawCircle(0, 0, 4)
     graphics.endFill()
@@ -61,8 +60,6 @@ function setup() {
     graphics.cacheAsBitmap = true
     app.stage.addChild(graphics)
 }
-
-
 
 function onResize() {
     app.stageW = window.innerWidth
