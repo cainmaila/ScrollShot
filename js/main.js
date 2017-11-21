@@ -51,6 +51,7 @@ function setup() {
     setInterval(function() {
         app.npcPool.once()
         app.npcPool.randomFire()
+        app.npcPool.randomFire()
     }, 500)
 }
 

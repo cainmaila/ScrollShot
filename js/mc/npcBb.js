@@ -2,7 +2,6 @@
 function NpcBb(npcBbTexture, po) {
     Mc.call(this, npcBbTexture)
     this.position = po ? po : { x: -100, y: -100 }
-    this.v.y = 10
     this.life = 0
     this.d = 10
 }
@@ -12,6 +11,6 @@ NpcBb.prototype.next = function() {
     if (this.life === 0) return
     borderOut(this) ? (this.life = 0) : ''
     if (this.life > 0) {
-        // hitNpcTest(this)
+        hitTestDelLife(this, app.me)
     }
 }

@@ -1,5 +1,5 @@
 function hitNpcTest(bb) {
-    app.npcPool.free.some(function (npc) {
+    app.npcPool.free.some(function(npc) {
         if (hitTest(npc, bb)) {
             npc.life--
             bb.life--
@@ -12,12 +12,19 @@ function hitNpcTest(bb) {
 }
 
 function meHit() {
-    app.npcPool.free.forEach(function (npc) {
+    app.npcPool.free.forEach(function(npc) {
         if (hitTest(app.me, npc)) {
             app.me.life--
             npc.life--
         }
     })
+}
+
+function hitTestDelLife(a, b) {
+    if (hitTest(a, b)) {
+        a.life--
+        b.life--
+    }
 }
 
 function hitTest(m1, m2) {
